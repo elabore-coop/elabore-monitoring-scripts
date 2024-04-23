@@ -35,42 +35,42 @@ if [[ "$SSH_ORIGINAL_COMMAND" =~ [\&\(\{\;\<\>\`\$\}] ]]; then
 fi
 
 disk_size() {
-    val=$(df -h | awk '/\/$/ {print $2}')  # Retrieves the total disk size of the root filesystem
+    val=$(df | awk '/\/$/ {print $2}')  # Retrieves the total disk size of the root filesystem
     echo "$val"
 }
 
 disk_available() {
-    val=$(df -h | awk '/\/$/ {print $4}')  # Retrieves the available disk space of the root filesystem
+    val=$(df | awk '/\/$/ {print $4}')  # Retrieves the available disk space of the root filesystem
     echo "$val"
 }
 
 disk_used() {
-    val=$(df -h | awk '/\/$/ {print $3}')  # Retrieves the used disk space of the root filesystem
+    val=$(df | awk '/\/$/ {print $3}')  # Retrieves the used disk space of the root filesystem
     echo "$val"
 }
 
 disk_used_percent() {
-    val=$(df -h | awk '/\/$/ {print $5}')  # Retrieves the percentage of used disk space of the root filesystem
+    val=$(df | awk '/\/$/ {print $5}')  # Retrieves the percentage of used disk space of the root filesystem
     echo "$val"
 }
 
 disk_available_percent() {
-    val=$(df -h | awk '/\/$/ {print $4}')  # Retrieves the percentage of available disk space of the root filesystem
+    val=$(df | awk '/\/$/ {print $4}')  # Retrieves the percentage of available disk space of the root filesystem
     echo "$val"
 }
 
 memory_size() {
-    val=$(free -h | awk '/Mem:/ {print $2}')  # Retrieves the total memory size
+    val=$(free | awk '/Mem:/ {print $2}')  # Retrieves the total memory size
     echo "$val"
 }
 
 memory_available() {
-    val=$(free -h | awk '/Mem:/ {print $7}')  # Retrieves the available memory
+    val=$(free | awk '/Mem:/ {print $7}')  # Retrieves the available memory
     echo "$val"
 }
 
 memory_used() {
-    val=$(free -h | awk '/Mem:/ {print $3}')  # Retrieves the used memory
+    val=$(free | awk '/Mem:/ {print $3}')  # Retrieves the used memory
     echo "$val"
 }
 
